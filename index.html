@@ -15,112 +15,40 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+
+  <noscript>
+    <div class="noscript-warning">JavaScript é necessário para exibir este site. Habilite o JavaScript no seu navegador.</div>
+  </noscript>
+
   <div class="container">
 
-    <header class="section" aria-label="Apresentação">
-      <p class="cmd">$ whoami</p>
-      <h1>Rodrigo Bomfim</h1>
-      <p class="subtitle">Site Reliability Engineer</p>
-      <p class="bio">12+ anos em TI. Especialista em cloud, Kubernetes, observabilidade e DevOps. Construo sistemas confiáveis e reduzo complexidade operacional.</p>
-    </header>
+    <header class="section" aria-label="Apresentação"></header>
 
-    <main>
+    <main id="main-content">
 
       <section class="section" aria-label="Stack tecnológica">
-        <p class="cmd">$ kubectl get stack -o wide</p>
-        <div class="stack-grid">
-          <div class="stack-card">
-            <p class="stack-label">CLOUD</p>
-            <ul class="tags" role="list">
-              <li class="tag">EC2</li>
-              <li class="tag">ECS</li>
-              <li class="tag">VPC</li>
-              <li class="tag">Route53</li>
-              <li class="tag">IAM</li>
-              <li class="tag">S3</li>
-              <li class="tag">RDS</li>
-              <li class="tag">MSK</li>
-            </ul>
-          </div>
-          <div class="stack-card">
-            <p class="stack-label">CONTAINERS</p>
-            <ul class="tags" role="list">
-              <li class="tag">Docker</li>
-              <li class="tag">Kubernetes</li>
-              <li class="tag">Helm</li>
-              <li class="tag">ECS</li>
-            </ul>
-          </div>
-          <div class="stack-card">
-            <p class="stack-label">OBSERVABILITY</p>
-            <ul class="tags" role="list">
-              <li class="tag">Prometheus</li>
-              <li class="tag">Grafana</li>
-              <li class="tag">Datadog</li>
-              <li class="tag">CloudWatch</li>
-              <li class="tag">Graylog</li>
-            </ul>
-          </div>
-          <div class="stack-card">
-            <p class="stack-label">IaC &amp; CI/CD</p>
-            <ul class="tags" role="list">
-              <li class="tag">Terraform</li>
-              <li class="tag">Ansible</li>
-              <li class="tag">GH Actions</li>
-              <li class="tag">Jenkins</li>
-            </ul>
-          </div>
-        </div>
+        <h2 class="sr-only">Stack tecnológica</h2>
+        <p class="cmd" aria-hidden="true">$ kubectl get stack -o wide</p>
+        <div class="stack-grid" id="stack-grid"></div>
       </section>
 
       <section class="section" aria-label="Experiência profissional">
-        <p class="cmd">$ git log --oneline --career</p>
-        <div class="timeline-card">
-          <div class="timeline-line" aria-hidden="true"></div>
-          <div class="timeline-item">
-            <div class="timeline-dot active" aria-hidden="true"></div>
-            <p class="timeline-title">SRE</p>
-            <p class="timeline-company">Cortex Intelligence</p>
-            <p class="timeline-date">08/2020 — 10/2023</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot past" aria-hidden="true"></div>
-            <p class="timeline-title">Analista de Operações</p>
-            <p class="timeline-company timeline-company--past">Bemobi</p>
-            <p class="timeline-date">12/2018 — 08/2020</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot past" aria-hidden="true"></div>
-            <p class="timeline-title">Analista de Suporte</p>
-            <p class="timeline-company timeline-company--past">Betunel</p>
-            <p class="timeline-date">07/2014 — 07/2018</p>
-          </div>
-        </div>
+        <h2 class="sr-only">Experiência profissional</h2>
+        <p class="cmd" aria-hidden="true">$ git log --oneline --career</p>
+        <div class="timeline-card" id="timeline-container"></div>
       </section>
 
       <section class="section" aria-label="Certificações">
-        <p class="cmd">$ cat /etc/credentials</p>
-        <div class="certs-grid">
-          <div class="cert-card">
-            <p class="cert-label">CERTIFIED</p>
-            <p class="cert-name">LPIC-1</p>
-          </div>
-          <div class="cert-card">
-            <p class="cert-label">CERTIFIED</p>
-            <p class="cert-name">ITILv3</p>
-          </div>
-        </div>
+        <h2 class="sr-only">Certificações</h2>
+        <p class="cmd" aria-hidden="true">$ cat /etc/credentials</p>
+        <div class="certs-grid" id="certs-grid"></div>
       </section>
 
       <section class="section" aria-label="Contato">
-        <p class="cmd">$ echo $CONTACT</p>
-        <div class="contact-row">
-          <a href="mailto:rbomfim.pro@gmail.com">rbomfim.pro@gmail.com</a>
-          <span class="separator" aria-hidden="true">|</span>
-          <a href="https://linkedin.com/in/rbomfimpro" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <span class="separator" aria-hidden="true">|</span>
-          <a href="https://github.com/rbomfimpro" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
+        <h2 class="sr-only">Contato</h2>
+        <p class="cmd" aria-hidden="true">$ echo $CONTACT</p>
+        <div class="contact-row" id="contact-row"></div>
       </section>
 
     </main>
@@ -134,6 +62,7 @@
 
   </div>
 
-  <script src="js/main.js" defer></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
