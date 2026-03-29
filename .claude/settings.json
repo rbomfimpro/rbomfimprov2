@@ -23,7 +23,8 @@
       "Bash(mkdir *)",
       "Bash(cp *)",
       "Bash(wc *)",
-      "Bash(tree *)"
+      "Bash(tree *)",
+      "Bash(echo *"
     ],
     "deny": [
       "Write(.git/**)",
