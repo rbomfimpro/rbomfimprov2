@@ -1,0 +1,76 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Write(index.html)",
+      "Write(css/**)",
+      "Write(js/**)",
+      "Write(assets/**)",
+      "Write(CNAME)",
+      "Write(.nojekyll)",
+      "Write(README.md)",
+      "Write(.claude/**)",
+      "Bash(python3 -m http.server*)",
+      "Bash(git status)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git add*)",
+      "Bash(git commit*)",
+      "Bash(npx html-validate*)",
+      "Bash(npx lighthouse*)",
+      "Bash(cat *)",
+      "Bash(ls *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(wc *)",
+      "Bash(tree *)"
+    ],
+    "deny": [
+      "Write(.git/**)",
+      "Write(node_modules/**)",
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(curl * | bash)",
+      "Bash(npm install*)",
+      "Bash(git push*)",
+      "Bash(git checkout main)",
+      "Bash(git merge*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write(index.html)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '✓ index.html atualizado — lembre de validar com /validate'",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Write(css/**)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '✓ CSS atualizado — verifique responsividade mobile'",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash(git push*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"block\": true, \"message\": \"Deploy bloqueado: use /deploy para fazer push com segurança\"}' >&2; exit 2",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

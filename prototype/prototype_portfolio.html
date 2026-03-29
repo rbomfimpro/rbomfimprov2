@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rodrigo Bomfim — SRE</title>
+<style>
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Consolas', monospace;
+    background: #0d1117;
+    color: #e6edf3;
+    padding: 3rem 2rem;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cmd {
+    font-size: 12px;
+    color: #7d8590;
+    margin-bottom: 6px;
+  }
+
+  .accent { color: #3fb950; }
+
+  .section { margin-bottom: 2.5rem; }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #e6edf3;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: #3fb950;
+    margin-bottom: 16px;
+  }
+
+  .bio {
+    font-size: 13px;
+    color: #7d8590;
+    line-height: 1.7;
+  }
+
+  .stack-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .stack-card {
+    border: 1px solid #21262d;
+    border-radius: 10px;
+    padding: 1rem;
+  }
+
+  .stack-label {
+    font-size: 11px;
+    color: #3fb950;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    background: #161b22;
+    border-radius: 6px;
+    color: #e6edf3;
+  }
+
+  .timeline-card {
+    border: 1px solid #21262d;
+    border-radius: 10px;
+    padding: 1.25rem;
+    position: relative;
+  }
+
+  .timeline-line {
+    position: absolute;
+    left: 24px;
+    top: 32px;
+    bottom: 32px;
+    width: 1px;
+    background: #21262d;
+  }
+
+  .timeline-item {
+    padding-left: 28px;
+    position: relative;
+  }
+
+  .timeline-item:not(:last-child) { margin-bottom: 18px; }
+
+  .timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+  }
+
+  .timeline-dot.active { background: #3fb950; }
+
+  .timeline-dot.past {
+    border: 1.5px solid #30363d;
+    background: #0d1117;
+  }
+
+  .timeline-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: #e6edf3;
+  }
+
+  .timeline-company {
+    font-size: 12px;
+    color: #3fb950;
+    margin-top: 2px;
+  }
+
+  .timeline-date {
+    font-size: 11px;
+    color: #7d8590;
+    margin-top: 2px;
+  }
+
+  .certs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .cert-card {
+    border: 1px solid #21262d;
+    border-radius: 10px;
+    padding: 12px 16px;
+  }
+
+  .cert-label {
+    font-size: 11px;
+    color: #3fb950;
+    margin-bottom: 2px;
+  }
+
+  .cert-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: #e6edf3;
+  }
+
+  .contact-row {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: #e6edf3;
+  }
+
+  .contact-row a {
+    color: #e6edf3;
+    text-decoration: none;
+  }
+
+  .contact-row a:hover { color: #3fb950; }
+
+  .separator { color: #21262d; }
+
+  .cursor-line {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2.5rem;
+  }
+
+  .cursor-prompt {
+    font-size: 12px;
+    color: #3fb950;
+  }
+
+  .cursor-block {
+    display: inline-block;
+    width: 10px;
+    height: 18px;
+    background: #3fb950;
+    animation: blink 1s step-end infinite;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 2rem 1rem; }
+    .stack-grid, .certs-grid { grid-template-columns: 1fr; }
+    .contact-row { flex-direction: column; gap: 8px; }
+    .separator { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="section">
+    <p class="cmd">$ whoami</p>
+    <h1>Rodrigo Bomfim</h1>
+    <p class="subtitle">Site Reliability Engineer</p>
+    <p class="bio">12+ anos em TI. Especialista em cloud, Kubernetes, observabilidade e DevOps. Construo sistemas confiáveis e reduzo complexidade operacional.</p>
+  </div>
+
+  <div class="section">
+    <p class="cmd">$ kubectl get stack -o wide</p>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <p class="stack-label">CLOUD</p>
+        <div class="tags">
+          <span class="tag">EC2</span>
+          <span class="tag">ECS</span>
+          <span class="tag">VPC</span>
+          <span class="tag">Route53</span>
+          <span class="tag">IAM</span>
+          <span class="tag">S3</span>
+          <span class="tag">RDS</span>
+          <span class="tag">MSK</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <p class="stack-label">CONTAINERS</p>
+        <div class="tags">
+          <span class="tag">Docker</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">Helm</span>
+          <span class="tag">ECS</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <p class="stack-label">OBSERVABILITY</p>
+        <div class="tags">
+          <span class="tag">Prometheus</span>
+          <span class="tag">Grafana</span>
+          <span class="tag">Datadog</span>
+          <span class="tag">CloudWatch</span>
+          <span class="tag">Graylog</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <p class="stack-label">IaC & CI/CD</p>
+        <div class="tags">
+          <span class="tag">Terraform</span>
+          <span class="tag">Ansible</span>
+          <span class="tag">GH Actions</span>
+          <span class="tag">Jenkins</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="cmd">$ git log --oneline --career</p>
+    <div class="timeline-card">
+      <div class="timeline-line"></div>
+      <div class="timeline-item">
+        <div class="timeline-dot active"></div>
+        <p class="timeline-title">SRE</p>
+        <p class="timeline-company">Cortex Intelligence</p>
+        <p class="timeline-date">08/2020 — 10/2023</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot past"></div>
+        <p class="timeline-title">Analista de Operações</p>
+        <p class="timeline-company" style="color:#7d8590">Bemobi</p>
+        <p class="timeline-date">12/2018 — 08/2020</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot past"></div>
+        <p class="timeline-title">Analista de Suporte</p>
+        <p class="timeline-company" style="color:#7d8590">Betunel</p>
+        <p class="timeline-date">07/2014 — 07/2018</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="cmd">$ cat /etc/credentials</p>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <p class="cert-label">CERTIFIED</p>
+        <p class="cert-name">LPIC-1</p>
+      </div>
+      <div class="cert-card">
+        <p class="cert-label">CERTIFIED</p>
+        <p class="cert-name">ITILv3</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="cmd">$ echo $CONTACT</p>
+    <div class="contact-row">
+      <a href="mailto:rbomfim.pro@gmail.com">rbomfim.pro@gmail.com</a>
+      <span class="separator">|</span>
+      <a href="https://linkedin.com/in/rbomfimpro">LinkedIn</a>
+      <span class="separator">|</span>
+      <a href="https://github.com/rbomfimpro">GitHub</a>
+    </div>
+  </div>
+
+  <div class="cursor-line">
+    <span class="cursor-prompt">#</span>
+    <span class="cursor-block"></span>
+  </div>
+
+</div>
+</body>
+</html>
